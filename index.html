@@ -15,7 +15,7 @@
     <div class="container border bg-light" id="app-container">
         <div class="row mt-3 mx-3 no-gutters border bg-light">
             
-            <div class="col" id="row1">
+            <div class="col-6" id="row1">
                 <h2>Current City</h2>
                 <ul class="d-block">
                 <li>Monday</li>
@@ -26,15 +26,19 @@
             <div class="col" id="search-bar">Something</div>
         </div>
         <div class="row mx-3 mb-3 pt-2 no-gutters border bg-light" id="row2">
-            <div class="col" id="main-temp" >
-                <i class="float-left fa-solid fa-sun"></i>
+            <div class="col-6" id="main-temp" >
+                <div class="clearfix">
+                    <i class="float-left fa-solid fa-sun"></i>
+                    <div class="float-left">
+                        <h2 class="float-left" id="mainT">12°</h2>
+                    <span class="float-left" id="cels">C | </span>
+                 <span class="float-left" id="farnht">F</span>
+                   
+                    </div>
+                    
+                </div>      
             </div>
-            <div class="float-left">
-                <h2 class=" d-inline" id="mainT">12°</h2>
-                <span class="col" id="cels">C | </span>
-                <span id="farnht">F</span>  
-            </div>
-            <div class="col justify-content-center" >
+            <div class="col-6" >
                 <ul>
                     <li>Precipitation</li>
                     <li>Humidity</li>

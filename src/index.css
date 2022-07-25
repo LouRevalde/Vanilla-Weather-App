@@ -1,5 +1,6 @@
 #app-container{
     margin-top: 30px;
+    max-width: 600px;
 }
 
 #row1{
@@ -15,7 +16,8 @@
     color: rgb(250, 176, 5);
     font-size: 50px;
     text-align: center;
-    margin: 0;
+    margin-left: 40px;
+    margin-right: 20px;
     /*float:inline-start;
     display: inline-block;*/
 
@@ -26,5 +28,6 @@
     padding: 0;
     margin: 0;
 }
+
 
 

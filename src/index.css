@@ -1,0 +1,30 @@
+#app-container{
+    margin-top: 30px;
+}
+
+#row1{
+    padding: 0;
+    margin: 0;
+}
+
+#search-bar{
+    text-align: right;
+}
+
+.fa-sun{
+    color: rgb(250, 176, 5);
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    /*float:inline-start;
+    display: inline-block;*/
+
+}
+
+#mainT{
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+

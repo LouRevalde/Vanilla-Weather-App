@@ -91,9 +91,9 @@ function updateIcon(){
         if(key === weathericon){
             document.getElementById("main-icon").src=`src/images/weathericons/${Icons[key].icon}`;
             console.log(Icons[key].href);
-            /*document.getElementById("attribution").href= `${Icons[key].href}`;
-            document.getElementById("attribution").title= `${Icons[key].title}`;*/
-            document.querySelector("#attribution").innerhtml= "Hey there";
+            document.getElementById("attribution").setAttribute('href', Icons[key].href);
+            document.getElementById("attribution").setAtrribute('title', Icons[key].title);
+            document.querySelector("#attribution").textContent= Icons[key].innerHTML;
             /*have to create function to create link*/
         }
     }

@@ -70,10 +70,10 @@ footer{
     display: flex;
     font-size: x-small;
     text-align: end;
-    margin-top: 2rem;
-    margin-right: 1rem;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    /* margin-top: 2rem;
+    margin-right: 1rem; */
+    /* margin-bottom: 0;
+    padding-bottom: 0; */
 }
 
 footer > a, header > a {
@@ -81,9 +81,24 @@ footer > a, header > a {
     text-decoration: none;
 }
 
-footer> a:hover, header > a:hover{
+#attribution:hover , header > a:hover  {
     color: pink;
     text-decoration: none;
+    margin-top: 3.5rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+}
+
+#github_link:hover {
+    color: #0F8EA3;
+    text-decoration: none;
+    margin-top: 3.5em;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
 }
 
 #deg:hover, #fahr:hover{

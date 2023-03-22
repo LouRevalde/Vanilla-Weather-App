@@ -21,13 +21,13 @@ function Temperature(temp) {
             }}
  }
 
-function Windspeed(wind, windvar) {
+function Windspeed(wind) {
+    let windvar;
     return {windspeed: wind,
         unit: "metric",
-        windvar: "0",
         convertMi: function() {
             this.unit = "imperial";
-            this.windvar = Math.round((this.windspeed /1.609344));
+            windvar = Math.round((this.windspeed /1.609344));
             return (`${windvar} mph`);},
         convertKm: function() {
             this.unit = "metric";

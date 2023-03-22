@@ -21,6 +21,21 @@ function Temperature(temp) {
             }}
  }
 
+function Windspeed(wind, windvar) {
+    return {windspeed: wind,
+        unit: "metric",
+        windvar: "0",
+        convertMi: function() {
+            this.unit = "imperial";
+            this.windvar = Math.round((this.windspeed /1.609344));
+            return (`${windvar} mph`);},
+        convertKm: function() {
+            this.unit = "metric";
+            return (`${(this.windspeed)} m/s`);
+        }}
+}
+
+
  function submitCity(event) {
     event.preventDefault();
     let cityselected = citysearch.value.trim();
@@ -28,9 +43,6 @@ function Temperature(temp) {
     console.log(cityselected);
 }
 
-function addAttribution(){
-    const newlink = document.createElement("a");
-}
 
 let Icons = {
     
@@ -84,22 +96,21 @@ let Icons = {
     }
 
 
-
 function updateIcon(){
  
     for(const key in Icons){
+        let x = document.getElementById("attribution");
         if(key === weathericon){
             document.getElementById("main-icon").src=`src/images/weathericons/${Icons[key].icon}`;
-            console.log(Icons[key].href);
-            document.getElementById("attribution").setAttribute('href', Icons[key].href);
-            document.getElementById("attribution").setAtrribute('title', Icons[key].title);
-            document.querySelector("#attribution").textContent= Icons[key].innerHTML;
-            /*have to create function to create link*/
+            /*console.log(Icons[key].href);*/
+            x.href= Icons[key].href;
+            x.title= Icons[key].title;
+            x.innerHTML= Icons[key].innerhtml;
         }
     }
 }
 
-function updateDisplay(){
+function updateDisplay(temp, wind){
     let city = document.querySelector("#city")
     let maintemp1 = document.querySelector("#temp");
     let pressure1 = document.querySelector("#pressure");
@@ -108,9 +119,9 @@ function updateDisplay(){
     let weathercond1 = document.querySelector(".cond");
     
     city.innerHTML = `${cityname}`
-    maintemp1.innerHTML = `${maintemp}°`;
-    pressure1.innerHTML = `Pressure: ${pressure}`;
-    humidity1.innerHTML = `Humidity: ${humidity}`;
+    maintemp1.innerHTML = `${temp}°`;
+    pressure1.innerHTML = `Pressure: ${pressure} hPa`;
+    humidity1.innerHTML = `Humidity: ${humidity} %`;
     wind1.innerHTML = `Wind: ${wind}`;
     weathercond1.innerHTML = `${weathercond}`;
 
@@ -128,12 +139,60 @@ function displayData(response) {
     tempMin = tempMn.temperature;
     pressure = response.data.main.pressure;
     humidity = response.data.main.humidity;
-    wind = response.data.wind.speed;
+    wind = new Windspeed(Math.round(response.data.wind.speed));
+    windsp = wind.convertKm(); 
     weathercond = response.data.weather[0].description;
     weathericon = response.data.weather[0].main;
     
-    updateDisplay();
+    updateDisplay(maintemp, windsp);
 }
+
+function getCurrentDate() {
+    
+    let now = new Date();
+    //let min = now.getMinutes();
+    //let hour = now.getHours();
+    let day = now.getDay();
+    let month = now.getMonth();
+    let date = now.getDate();
+    let year = now.getFullYear();
+
+    let datenow = document.querySelector(".date");
+    let time = document.querySelector(".time");
+
+    //datenow.innerHTML = `${day} ${date}/${month}/${year}`;
+    const event = new Date(Date.UTC(year, month, date, day, 0, 0));
+    const options = {weekday: "short", year: 'numeric', month: 'short', day: 'numeric'};
+    
+    datenow.innerHTML = `${event.toLocaleDateString(undefined, options)}`;
+    time.innerHTML = `${event.toLocaleTimeString()}`
+}
+
+function displayTime() {
+    let getCurrentTime = document.querySelector(".time");
+    let current = new Date();
+    timestr = current.toLocaleTimeString();
+    getCurrentTime.innerHTML = `${timestr}`;
+}
+
+function convertUnit(){
+    convert()
+
+}
+
+
+
+
+function toDegrees(){
+        let tempC = new Temperature(maintemp);
+        let windC = new Windspeed(windsp);
+        updateDisplay(tempC.convertC, windC);
+    }
+
+function toImperial(){
+        updateDisplay(temp.convertF, wind.convertMi);
+    }
+
 
  //api call
 now = new Date();
@@ -144,6 +203,10 @@ console.log(now.getDay());
 console.log(now.getFullYear());
 
 
+getCurrentDate();
+setInterval(displayTime, 1000);
+callWeatherApi("Sydney");
+
 let citysearch = document.querySelector("#search-box");
 let submit = document.querySelector("#search-form");
 submit.addEventListener("submit", submitCity);
@@ -153,14 +216,31 @@ let tempMax;
 let tempMin;
 let pressure;
 let humidity;
-let wind;
 let weathercond;
 let weathericon;
+let windsp;
 
- 
+let cels = document.querySelector("#deg");
+//cels.addEventListener("click", toDegrees);
+let fahrnht = document.querySelector("#fahr");
+//fahrnht.addEventListener("click", toImperial);
+
+
 /*
- function City(city) {
-    return {
-        city: city,
-    }
- }*/
+function displayDatetime() {
+    /*let datenow = document.querySelector(".date");
+    let time = document.querySelector(".time")
+    datenow.innerHTML = `${date}/${month}/${year}`;
+    time.innerHTML = `${hour}:${min}`
+}
+
+
+function formatDate() {
+    
+
+}
+
+function formatTime() {
+
+} 
+*/

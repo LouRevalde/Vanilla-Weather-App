@@ -1,13 +1,12 @@
 body * {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-
+    font-family: 'Secular One', sans-serif;
 }
 
 ul.subheading{
     list-style: none;
     padding: 0;
     margin: 0;
+    font-size: 1rem;
     text-transform: capitalize;
 }
 
@@ -21,13 +20,35 @@ ul.subheading{
 h2, h3{
     margin: 0;
     padding: 0;
+    font-size: large;
     text-transform: capitalize;
+    font-weight: bold;
 }
 
-span {
+#temp{
+    margin-right: 0.5rem;
+}
+
+.date, .time {
+    color:#4b5155;
+}
+
+
+#cels {
+    display: inline-block;
+    white-space: nowrap;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
+.cond{
+    color: #0F8EA3;
+}
+
+#pressure{
+    white-space: nowrap;
+    margin-left: 0;
+}
+
 
 form{
     padding: 0;
@@ -43,8 +64,6 @@ header{
     margin-bottom: 0;
     padding-bottom: 0;
 }
-
-
 
 
 footer{
@@ -67,19 +86,20 @@ footer> a:hover, header > a:hover{
     text-decoration: none;
 }
 
+#deg:hover, #fahr:hover{
+    color:#0F8EA3;
+}
+
 button{
     background-color: cadetblue;
 }
-
-
-
 
 #main-icon{
     display: flex;
     height: 3.5rem;
     width: 3.5rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    /*margin-left: 0.5rem;*/
+    margin-right: 0.7rem;
     background-color: none;
     mix-blend-mode: multiply;
 }
@@ -153,7 +173,7 @@ button{
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
-    max-width: 40vw;
+    max-width: 30vw;
     max-height: 90vh;
     min-width: 300px;
     border-radius: 0.5rem;
@@ -202,7 +222,7 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    text-indent: 1rem;
+    text-indent: 0.2rem;
     align-items: flex-start;
 
 }

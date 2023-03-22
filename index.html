@@ -9,7 +9,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--<link rel="preconnect" href="https://fonts.googleapis.com">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=Padauk:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container border pb-2 bg-image" style="background-image: url('src/images/15592514_5641786.jpg')" id="app-container">
@@ -29,9 +31,10 @@
         <div class="row mx-3" id="row1">
             <div class="col p-3 d-flex" id="row1c-1">
             <div>
-                <h3 id="city">Current</h3>
+                <h3 id="city">City</h3>
                 <ul class="subheading">
                     <li class="date">Date</li>
+                    <li class="time">Time</li>
                     <li class="cond">Clear</li>
                 </ul>
             </div> 
@@ -39,12 +42,10 @@
             
         </div>
         <div class="row mx-3 mb-3" id="row2">
-            <div class="col p-3 clearfix" id="row2c-1">
+            <div class="col px-3 pt-3 clearfix" id="row2c-1">
                 <img src="src/images/weathericons/sun.gif" alt="clear" id="main-icon">
                 <h2 id="temp">12°</h2>
-                <span id="cels"> C |
-                    <span id="fahrnt">F</span>
-                </span>
+                <span id="cels"><span id="deg">C</span> | <span id="fahr">F</span></span>
             </div>
             <div class="col p-3" id="row2c-2">
                 <ul class="desc-li">
